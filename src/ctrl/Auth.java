@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import db.Config;
 import db.Database;
@@ -42,12 +43,16 @@ public class Auth extends HttpServlet {
 
 		try {
 			if (tmp.next()) {
-				response.sendRedirect(tmp.getString("isAdmin") == "t" ? "admin.jsp"
+				HttpSession s = request.getSession();
+				s.setAttribute("login", login);
+				s.setAttribute("isAdmin", tmp.getString("isAdmin"));
+				response.sendRedirect(tmp.getString("isAdmin").equals("t") ? "admin.jsp"
 						: "index.jsp");
 			} else {
 				response.sendRedirect("welcome.jsp?err=1");
 			}
 		} catch (SQLException e2) {
+			response.getWriter().println("this is bad too");
 		}
 	}
 }

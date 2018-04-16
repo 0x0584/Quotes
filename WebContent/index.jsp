@@ -20,7 +20,7 @@
 		<div class="right grid_12 ">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#">[User]</a></li>
+				<li><a href="#"><%= request.getSession().getAttribute("login")%></a></li>
 				<li><a href="#">Logout</a></li>
 				<li><input type="text" name="search" placeholder="Search ..."
 					class="input-group"> <!-- this is what i called "useful comment!" -->

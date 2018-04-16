@@ -11,7 +11,7 @@ public class Config {
 	public Config(String dbname) {
 		this.dbname = dbname;
 	}
-
+	
 	public Config(String user, String pwd, String dbname) {
 		this.dbname = dbname;
 		this.user = user;
