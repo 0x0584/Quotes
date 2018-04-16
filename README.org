@@ -1,0 +1,6 @@
+
+* database
+  using a =Mariadb= as DBMS, there are two files:
+
+  + [[file:create.sql]] :: create the scheme
+  + [[file:insert.sql]] :: fill the database

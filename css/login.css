@@ -1,0 +1,129 @@
+body {
+    background : url() no-repeat ;
+	background-color: rgba(0,0,0,0.5);
+	font-family: sans-serif;
+  
+}
+
+
+.forms{
+	width: 250px;
+	padding-left: 70px;
+	padding-right: 70px;
+	padding-bottom: 50px;
+	padding-top: 20px;
+}
+
+.forgot_pass{
+	text-decoration: none; 
+	text-transform: uppercase;
+	font-size: 11px;
+	margin-left:75px;
+    padding-top: 2px;
+	font-family: sans-serif ; 
+	color: white ;
+}
+.forgot_pass:hover{
+	text-decoration: underline;
+}
+.select{
+    
+    color:  #696563 ;
+}
+.form_control{
+	
+	border: 0px solid rgba(0,0,0,1);
+	background-color: transparent;
+	width: 250px;
+	font-family: sans-serif;
+	font-size: 12px;
+	text-align: center;
+	/* Makes it Fit  The Divs */
+	position: absolute;
+    
+	margin-top: -10px;
+	margin-left: -10px;
+	height: 94%;
+	width: 99%;
+	
+} 
+		/****************************************
+			*************************************
+			** #  Making inputs fit Divs 
+			*************************************
+		*****************************************/
+
+.has-border{
+	border-top: 1px solid rgba(0,0,0,0.2);
+}
+.form_control:first-child,
+.group_form:first-child,
+.group_form:first-child{
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+.form-controm:last-child,
+.group_form:last-child,
+.group_form:last-child{
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius:6px;
+}
+.group_form{
+	padding:10px;
+	background: rgba(255,255,255,0.8);
+	width: 270px;
+	height: 20px;
+	position: relative ;
+    color:  #696563 ;
+	
+}
+.sign-up .group_form:last-child{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+		
+.form_select{
+	padding-right:35px;
+	position:absolute;
+	width: 50%;
+	padding-left: 40px;
+	color:  #696563 ;
+	height: 100%;
+}
+.form_select:first-child{
+    float: left;
+}
+.form_select:last-child{
+    
+    margin-left: 135px;
+}
+.form_select:hover {
+	cursor: pointer;
+}
+
+.buttons{
+	padding-right: 10px;
+	border-radius: 18px;
+	border:2px solid #0080FF;
+	background: #0080FF;
+	color: white ;
+	margin-top: 5px;
+	width: 290px;
+	height: 40px;
+	font-weight: bold ;
+	font-family: sans-serif;
+}
+.sign-in .buttons{
+	border-radius: 6px;
+}
+.buttons:hover{
+	box-shadow: 0px 0px 6px #FF1818;
+	background-color: #FF1818;
+	border:2px solid #FF1818;
+	cursor: pointer;
+}
+.no-gap{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-top: -1px;  
+}
