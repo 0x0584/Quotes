@@ -1,6 +1,17 @@
+#+TITLE: Readme, please?
+#+AUTHOR: Anas Rchid
+
+* Introduction
+  /Quotes/ is a realistion of a =forum lab= given by [[mailto://madani@ucd.ac.ma][Mr. Madani]], and it's about a website that let you share quotes +with your followers and stuff+. 
 
 * database
   using a =Mariadb= as DBMS, there are two files:
 
   + [[file:create.sql]] :: create the scheme
   + [[file:insert.sql]] :: fill the database
+
+* the view
+  the first webpage in ouer journey would be =index=, it checks if the user already ahs a session, if so then show the content. otherwise, redirect to =welcome=
+
+* the model
+* the controller
