@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="objects.*"%>
+<%@page import="db.Database"%>
 <%
 	if (request.getSession().getAttribute("current_user") == null)
 		response.sendRedirect("welcome.jsp");
@@ -29,7 +32,9 @@
 		<div class="right grid_12 ">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#"><%=request.getSession().getAttribute("login")%></a></li>
+				<li><a href="#"> <%
+ 	out.print(request.getSession().getAttribute("current_user"));
+ %></a></li>
 				<li><a href="#">Logout</a></li>
 				<li><input type="text" name="search" placeholder="Search ..."
 					class="input-group"> <!-- this is what i called "useful comment!" -->
@@ -40,109 +45,25 @@
 		</div>
 
 	</div>
-	<div class="post- grid_16" align="center">
-		<form method="post" action="Publish">
 
-			<!-- <textarea name="content" placeholder="what's on your mind ?"></textarea> -->
-			<input type="text" name="content" placeholder="what's on your mind?">
-			<input type="submit" name="submission" class="btn">
-		</form>
-	</div>
 	<div id="main-" class="container_16">
+		<div class="post- grid_16" align="center">
+			<form method="post" action="Publish">
 
+				<textarea name="content" placeholder="what's on your mind ?"></textarea>
 
-		<div class="post grid_8" align="center">
-			<div class="picture">
-				<img src="img/download.png">
-				<div>
-					<a href="#">0x5043</a>
-				</div>
-			</div>
-
-			<div>
-				<blockquote>
-					<p>this is a test of table this is a test of table this is a
-						test of table this is a test of tablethis is a test of table this
-						is a test of table this is a test of table this is a test of table
-						this is a test of table this is a test of table this is a test of
-						table</p>
-				</blockquote>
-			</div>
+				<input type="submit" name="submission" class="btn">
+			</form>
 		</div>
-
-		<div class="post grid_8" align="center">
-			<div class="picture">
-				<img src="img/download.png">
-				<div>
-					<a href="#">0x5043</a>
-				</div>
-			</div>
-
-			<div>
-				<blockquote>
-					<p>this is a test of table this is a test of table this is a
-						test of table this is a test of tablethis is a test of table this
-						is a test of table this is a test of table this is a test of table
-						this is a test of table this is a test of table this is a test of
-						table</p>
-				</blockquote>
-			</div>
-		</div>
-		<div class="post grid_8" align="center">
-			<div class="picture">
-				<img src="img/download.png">
-				<div>
-					<a href="#">0x5043</a>
-				</div>
-			</div>
-
-			<div>
-				<blockquote>
-					<p>this is a test of table this is a test of table this is a
-						test of table this is a test of tablethis is a test of table this
-						is a test of table this is a test of table this is a test of table
-						this is a test of table this is a test of table this is a test of
-						table</p>
-				</blockquote>
-			</div>
-		</div>
-		<div class="post grid_8" align="center">
-			<div class="picture">
-				<img src="img/download.png">
-				<div>
-					<a href="#">0x5043</a>
-				</div>
-			</div>
-
-			<div>
-				<blockquote>
-					<p>this is a test of table this is a test of table this is a
-						test of table this is a test of tablethis is a test of table this
-						is a test of table this is a test of table this is a test of table
-						this is a test of table this is a test of table this is a test of
-						table</p>
-				</blockquote>
-			</div>
-		</div>
-
-		<div class="post grid_8" align="center">
-			<div class="picture">
-				<img src="img/download.png">
-				<div>
-					<a href="#">0x5043</a>
-				</div>
-			</div>
-
-			<div>
-				<blockquote>
-					<p>this is a test of table this is a test of table this is a
-						test of table this is a test of tablethis is a test of table this
-						is a test of table this is a test of table this is a test of table
-						this is a test of table this is a test of table this is a test of
-						table</p>
-				</blockquote>
-			</div>
-		</div>
+		<%
+			User foo = (User) request.getSession().getAttribute("current_user");
+			if (foo != null) {
+				ArrayList<Quote> list = new Database().getHomeQuotes(foo);
+				for (Quote q : list) {
+					out.println(q.toHtmlTag(null));
+				}
+			}
+		%>
 	</div>
 
 	<!-- this should be on one line, without the bullets -->

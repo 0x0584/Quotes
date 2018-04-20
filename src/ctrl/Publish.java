@@ -36,8 +36,8 @@ public class Publish extends HttpServlet {
 		}
 
 		try {
-			new Database().publishQuote(new Quote(user.getIdUser(),
-					null, request.getParameter("content")));
+			new Database().publishQuote(new Quote(user.getIdUser(), request
+					.getParameter("content")));
 			response.sendRedirect("index.jsp?published=1");
 		} catch (ClassNotFoundException | SQLException | ParseException e) {
 			response.getWriter().println("this is not good");

@@ -18,17 +18,24 @@ create table q_user (
 create table q_quote (
         idQuote	 integer auto_increment,
 	idAuthor integer not null,	-- original creator
-	idUser   integer default null, 	-- when a quote is shared
-	created	 timestamp not null,
+	created	 timestamp not null default now(),
 	content  varchar(255),
 	-- primary key: idQuote, idAuthor
 	primary key (idQuote, idAuthor),
 	-- foregin key: idAuthor
 	constraint fk_idauthor
 	foreign key (idAuthor) references q_user(idUser),
-	-- foregin key: idUser
-      	constraint fk_iduser 
-	foreign key (idUser) references q_user(idUser)
+);
+
+create table q_share (
+       idQuote integer,
+       idUser integer,
+       created timestamp default now(),
+       primary key (idQuote, idUser),
+       constraint fk_idquote_share 
+       foreign key (idQuote) references q_quote(idQuote),
+       constraint fk_iduser_share 
+       foreign key (idUser) references q_user(idUser)
 );
 
 create table q_relation (
@@ -44,3 +51,16 @@ create table q_relation (
 	constraint fk_idfowing 
 	foreign key (idFollowing) references q_user(idUser)
 );
+
+-- qq.idQuote, qq.created, qq.content, qq.idAuthor, qs.idUser, qr.idFollowing, qr.idFollower 
+
+select distinct qq.idQuote, qq.created, qq.idAuthor, qs.idUser  
+from q_quote qq, q_user qu, q_relation qr, q_share qs 
+where  qu.idUser = 2 and qu.idUser = qr.idFollower and
+       (qq.idQuote = qs.idQuote or qq.idAuthor = qu.idUser) and 
+       (qs.idUser = qr.idFollowing       or
+       qs.idUser = qr.idFollower       or
+       qq.idAuthor = qr.idFollowing	or
+       qq.idAuthor = qr.idFollower) 
+order by created desc
+group by (idQuote)

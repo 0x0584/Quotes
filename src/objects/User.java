@@ -30,9 +30,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [idu=" + idu + ", isadmin=" + isadmin + ", login=" + login
-				+ ", pwd=" + pwd + ", fn=" + fn + ", ln=" + ln + ", email="
-				+ email + "]";
+		return "@" + login;
 	}
 
 	public Integer getIdUser() {
