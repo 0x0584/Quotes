@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import objects.User;
 import db.Config;
 import db.Database;
 
@@ -37,21 +38,21 @@ public class Auth extends HttpServlet {
 			tmp = new Database(Config.d_cfg).exec("SELECT * FROM q_user "
 					+ "WHERE login = '" + login + "' AND pwd = '" + pwd + "'",
 					false);
-		} catch (ClassNotFoundException | SQLException e1) {
-			response.getWriter().println("this is bad");
-		}
-
-		try {
 			if (tmp.next()) {
 				HttpSession s = request.getSession();
-				s.setAttribute("login", login);
-				s.setAttribute("isAdmin", tmp.getString("isAdmin"));
+
+				s.setAttribute(
+						"current_user",
+						new User(tmp.getInt("idUser"), tmp
+								.getBoolean("isAdmin"), login, pwd, tmp
+								.getString("f_name"), tmp.getString("l_name"),
+								tmp.getString("email")));
 				response.sendRedirect(tmp.getString("isAdmin").equals("t") ? "admin.jsp"
 						: "index.jsp");
 			} else {
 				response.sendRedirect("welcome.jsp?err=1");
 			}
-		} catch (SQLException e2) {
+		} catch (SQLException | ClassNotFoundException e2) {
 			response.getWriter().println("this is bad too");
 		}
 	}

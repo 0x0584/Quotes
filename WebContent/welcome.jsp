@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
-
+<%
+	if (request.getSession().getAttribute("current_user") != null)
+		response.sendRedirect("index.jsp");
+	/*
+	if (((String) request.getAttribute("published")).compareTo("1") == 0) {
+		out.println("posted");
+	}
+	 */
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>

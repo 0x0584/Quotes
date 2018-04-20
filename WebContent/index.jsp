@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=windows-1256"
 	pageEncoding="windows-1256"%>
+<%
+	if (request.getSession().getAttribute("current_user") == null)
+		response.sendRedirect("welcome.jsp");
+	/*
+	if (((String) request.getAttribute("published")).compareTo("1") == 0) {
+		out.println("posted");
+	}
+	 */
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +29,7 @@
 		<div class="right grid_12 ">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#"><%= request.getSession().getAttribute("login")%></a></li>
+				<li><a href="#"><%=request.getSession().getAttribute("login")%></a></li>
 				<li><a href="#">Logout</a></li>
 				<li><input type="text" name="search" placeholder="Search ..."
 					class="input-group"> <!-- this is what i called "useful comment!" -->
@@ -31,14 +40,16 @@
 		</div>
 
 	</div>
+	<div class="post- grid_16" align="center">
+		<form method="post" action="Publish">
 
-	<div id="main-" class="container_16">
-		<div class="post- grid_16" align="center">
-			<div>
-				<textarea placeholder="what's on your mind ?"></textarea>
-			</div>
+			<!-- <textarea name="content" placeholder="what's on your mind ?"></textarea> -->
+			<input type="text" name="content" placeholder="what's on your mind?">
 			<input type="submit" name="submission" class="btn">
-		</div>
+		</form>
+	</div>
+	<div id="main-" class="container_16">
+
 
 		<div class="post grid_8" align="center">
 			<div class="picture">
@@ -57,8 +68,8 @@
 						table</p>
 				</blockquote>
 			</div>
-
 		</div>
+
 		<div class="post grid_8" align="center">
 			<div class="picture">
 				<img src="img/download.png">
