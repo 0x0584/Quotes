@@ -62,5 +62,5 @@ where  qu.idUser = 2 and qu.idUser = qr.idFollower and
        qs.idUser = qr.idFollower       or
        qq.idAuthor = qr.idFollowing	or
        qq.idAuthor = qr.idFollower) 
-order by created desc
 group by (idQuote)
+order by created

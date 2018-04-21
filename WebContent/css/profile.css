@@ -1,0 +1,73 @@
+.react {
+	margin-top: -13px;
+	width: 90%;
+	padding-bottom: 10px;
+}
+
+.past-post {
+	min-height: 500px;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+.picture-p {
+	margin-top: -120px;
+}
+
+.picture-p img {
+	border: solid 4px #616A6B;
+	margin-top: 5px;
+	border-radius: 50%;
+	width: 180px;
+	height: 180px;
+}
+
+.picture-p img:hover {
+	border: solid 4px #CCD1D1;
+	cursor: pointer;
+}
+
+.picture-p a:before {
+	content: "@";
+}
+
+.picture-p a {
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-decoration: none;
+	color: black;
+}
+
+.picture-p a:hover {
+	color: grey;
+	cursor: pointer;
+}
+
+.banner {
+	background: black;
+	height: 220px;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+}
+
+.info {
+	background: white;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	min-height: 500px;
+}
+
+.past-post .post- textarea {
+	height: 150px;
+	margin-top: 20px;
+}
+
+.past-post .post- .btn {
+	margin-top: -5px;
+	width: 90.2%;
+}
+
+.past-post .post- textarea {
+	width: 89.5%;
+}

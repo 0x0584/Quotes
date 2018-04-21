@@ -3,10 +3,6 @@ body {
 	font-family: sans-serif;
 }
 
-li {
-	margin: 0px 1% 0px 1%
-}
-
 .container_16 {
 	margin-top: 10px;
 }
@@ -25,15 +21,15 @@ li {
 	text-align: center;
 }
 
-.right a {
+a {
 	text-decoration: none;
 }
 
-.right ul {
+ul {
 	list-style-type: none;
 }
 
-.right li {
+li {
 	display: inline;
 }
 /*enf of that list customization*/
@@ -56,7 +52,6 @@ table {
 	min-height: 110%;
 	background-color: #0ffcc0;
 }
-
 /***********************************/
 /*********** Blockquotes ***********/
 /***********************************/
@@ -74,10 +69,18 @@ blockquote p:after {
 /*************** END ***************/
 /***********************************/
 .post {
-	border-radius: 4px;
+	border-radius: 8px;
 	border-style: none;
 	margin-top: 20px;
 	background-color: white;
+	border-bottom-right-radius: 37px;
+	border-bottom-left-radius: 37px;
+}
+
+.profile .post {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	width: 89.5%;
 }
 
 .header {
@@ -89,7 +92,7 @@ blockquote p:after {
 /************* Pictures ************/
 /***********************************/
 .picture img {
-	border: solid 2px black;
+	border: solid 2px #616A6B;
 	margin-top: 5px;
 	border-radius: 50%;
 	width: 70px;
@@ -97,8 +100,12 @@ blockquote p:after {
 }
 
 .picture img:hover {
-	border: solid 2px grey;
+	border: solid 2px #CCD1D1;
 	cursor: pointer;
+}
+
+.picture a:before {
+	content: "@";
 }
 
 .picture a {
@@ -113,7 +120,6 @@ blockquote p:after {
 	color: grey;
 	cursor: pointer;
 }
-
 /***********************************/
 /*************** END ***************/
 /***********************************/
@@ -187,19 +193,45 @@ textarea {
 	border: none;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
+	border-bottom: solid 01px #CCD1D1;
 }
 
 .btn:hover {
 	background: #03608A;
 }
 
+.btn-right {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 8px;
+	/*border-left: solid 1px black;
+*/
+}
+
+.btn-mid {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.btn-left {
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 8px;
+	/*border-right: solid 1px black;
+*/
+}
+
+.btn-right, .btn-mid, .btn-left {
+	width: 33.33%;
+	margin: -3px;
+	border-bottom: solid 01px #CCD1D1;
+}
 /***********************************/
 /*************** END ***************/
 /***********************************/
+.has-border {
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 .welcome-msg {
 	padding-left: 30px;
 }
-
-/***********************************/
-/*************** END ***************/
-/***********************************/
