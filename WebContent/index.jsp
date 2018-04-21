@@ -32,9 +32,10 @@
 		<div class="right grid_12 ">
 			<ul>
 				<li><a href="#">Home</a></li>
-				<li><a href="#"> <%
- 	out.print(request.getSession().getAttribute("current_user"));
- %></a></li>
+				<li><a
+					href="profile.jsp?user = <%out.print(request.getSession().getAttribute("current_user"));%>"><%
+							out.print(request.getSession().getAttribute("current_user"));
+						%></a></li>
 				<li><a href="#">Logout</a></li>
 				<li><input type="text" name="search" placeholder="Search ..."
 					class="input-group"> <!-- this is what i called "useful comment!" -->
@@ -47,14 +48,18 @@
 	</div>
 
 	<div id="main-" class="container_16">
+		<!-- posting  -->
 		<div class="post- grid_16" align="center">
-			<form method="post" action="Publish">
-
-				<textarea name="content" placeholder="what's on your mind ?"></textarea>
-
-				<input type="submit" name="submission" class="btn">
+			<form action="Publish" method="post">
+				<div>
+					<textarea name="content" placeholder="what's on your mind?"></textarea>
+				</div>
+				<input type="submit" name="submission" class="btn" value="Quote!">
 			</form>
 		</div>
+
+		<!-- publishing -->
+
 		<%
 			User foo = (User) request.getSession().getAttribute("current_user");
 			if (foo != null) {

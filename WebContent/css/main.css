@@ -220,8 +220,6 @@ textarea {
 }
 
 .btn-right, .btn-mid, .btn-left {
-	width: 33.33%;
-	margin: -3px;
 	border-bottom: solid 01px #CCD1D1;
 }
 /***********************************/
